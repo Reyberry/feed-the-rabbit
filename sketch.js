@@ -25,13 +25,13 @@ rabbit.addImage(rabbitImg);
 }
 
 
-function createApple()
+function createApple(){
 
 apple.createSprite(random(50,350),40,10,10);
 apple.addImage(appleImg);
 apple.scale = 0.1;
 
-
+}
 
 var apple = Math.round(random(1,2));
 
