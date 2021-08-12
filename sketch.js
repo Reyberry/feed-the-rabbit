@@ -27,17 +27,32 @@ rabbit.addImage(rabbitImg);
 
 function createApple(){
 
-apple.createSprite(random(50,350),40,10,10);
+apple = createSprite(random(50,350),40,10,10);
 apple.addImage(appleImg);
 apple.scale = 0.1;
+apple.velocityY = 3;
+apple.lifetime = 150;
+}
+function createLeaves(){
 
+leaf = createSprite(random(50,350),40,10,10);
+leaf.addImage(leafImg);
+leaf.scale = 0.1;
+leaf.velocityY = 3;
+leaf.lifetime = 150;
 }
 
-var apple = Math.round(random(1,2));
 
 
+
+function draw() {
+  background(0);
+  edges= createEdgeSprites();
+  rabbit.collide(edges);
+  drawSprites();
+  var num1 = Math.round(random(1,3));
 if (frameCount % 80 == 0) {
- if(appleImg == 1) {
+ if(num1 == 1) {
  createApple()
  }
 else{ 
@@ -45,11 +60,4 @@ else{
 
 }
 }
-function draw() {
-  background(0);
-  createApple()
-  createLeaves()
-  edges= createEdgeSprites();
-  rabbit.collide(edges);
-  drawSprites();
 }
